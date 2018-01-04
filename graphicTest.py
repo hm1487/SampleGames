@@ -16,7 +16,7 @@ screen = game.display.set_mode(size)
 while not done:
 	for event in game.event.get(): # getting what the user did
 		if (event.type ==game.QUIT):
-			print("You are trying to quit")
+			print("You are trying to quit") #i COULD USE THIS FOR A KEYLOGGER
 			done = True
 		elif (event.type == game.KEYDOWN):
 			print("You pressed a key")

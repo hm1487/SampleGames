@@ -11,7 +11,7 @@ y_offset = 0
 clock = game.time.Clock()
 size = (700,500)
 font = game.font.SysFont('Calibri', 25, True, False)
-text = font.render("NAAAAANI",True, WHITE)
+text = font.render("I EAT ASS",True, WHITE)
 
 game.display.set_caption("EAT THIS ASS BOI")
 screen = game.display.set_mode(size)
@@ -24,8 +24,8 @@ while not done:
 		
 		screen.fill(BLUE)
 		game.draw.line(screen,GREEN,[0,0+y_offset],[100,100+y_offset],5) #lmao this looks funny
+		screen.blit(text,[300,0 + y_offset])
 		y_offset += 10
-		screen.blit(text,[300,250])
 		game.display.flip()
 		clock.tick(60)
 
