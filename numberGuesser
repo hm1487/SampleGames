@@ -1,0 +1,16 @@
+from random import *
+
+print("Hello! Welcome to Number Guesser! The number is always between 0 - 100!")
+key = randint(1,100)
+counter = 0
+while(True):
+	guess = int(input("Enter your guess: "))
+	if (guess > key):
+		print("Too High!")
+	if (guess < key):
+		print("Too Low!")
+	if (guess == key):
+		print("Congrats! You guessed the number correctly! It took you",counter,"tries!")
+		break
+	counter = counter + 1
+print("Thanks for playing!")
