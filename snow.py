@@ -1,4 +1,5 @@
 import pygame as game
+import random
 
 game.init()
 
@@ -13,30 +14,33 @@ clock = game.time.Clock()
 size = (700,500)
 font = game.font.SysFont('Calibri', 25, True, False)
 text = font.render("I EAT ASS",True, WHITE)
+snow_list = []
 
 game.display.set_caption("EAT THIS ASS BOI")
 screen = game.display.set_mode(size)
 
-rect_x = 50 
-rect_y = 50
-rect_x_change = 5
-rect_y_change = 5
+
+for i in range(50):
+	x = random.randrange(0,700)
+	y = random.randrange(0,500)
+	snow_list.append([x,y])
+
 while not done:
 	for event in game.event.get(): # getting what the user did
 		if (event.type == game.QUIT):
 			print("You are trying to quit") #i COULD USE THIS FOR A KEYLOGGER
 			done = True
-	screen.fill(WHITE)
 	screen.fill(BLACK)
+		
+	for i in range(len(snow_list)):
+		game.draw.circle(screen,WHITE,snow_list[i],2)
+		snow_list[i][1] += 2
+		if snow_list[i][1] > 400:
+			y = random.randrange(-50,-10)
+			snow_list[i][0] = y
+			x = random.randrange(0,700)
+			snow_list[i][0] = x
 
-	game.draw.rect(screen, WHITE, [rect_x, rect_y, 50, 50])
-	if (rect_y > 450 or rect_y < 0):
-		rect_y_change *= -1
-	if (rect_x > 650 or rect_x < 0):
-		rect_x_change *= -1
-	rect_x += rect_x_change #Changes the movement of the rect in the x coordinate
-	rect_y += rect_y_change #Changes the movement of the rect in the y coordinate
 	game.display.flip()
-	clock.tick(60)
-
+	clock.tick(20) #Faster makes it look ridiculous lmao
 game.quit()
