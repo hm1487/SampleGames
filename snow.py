@@ -34,10 +34,9 @@ while not done:
 		
 	for i in range(len(snow_list)):
 		game.draw.circle(screen,WHITE,snow_list[i],2)
-		snow_list[i][1] += 2
-		if snow_list[i][1] > 400:
-			y = random.randrange(-50,-10)
-			snow_list[i][0] = y
+		snow_list[i][1] += 3
+		if snow_list[i][1] > 500:
+			snow_list[i][1] = 0
 			x = random.randrange(0,700)
 			snow_list[i][0] = x
 
